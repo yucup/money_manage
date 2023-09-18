@@ -16,10 +16,22 @@ $hasil = $penjumlahan->fetch_assoc();
 // print_r($hasil);
 
 ?>
-<div class="container">
+<div class="container shadow rounded bg-white p-5 my-5 border-top border-primary border-5">
+			<h3 class="text-primary text-center"><i><u>PEMASUKAN</u></i></h3>
 	<div class="row">
-		<div class="col-md shadow rounded bg-white p-5 my-5 border-top border-primary border-5">
-			<h5 class="text-primary text-center"><i>PEMASUKAN</i></h5>
+		<div class="col-4">
+			<form method="post">
+				<label class="form-label">Tgl Awal</label>
+				<input type="date" name="tgl_awal" class="form-control">
+			</div>
+			<div class="col-4">
+				<label class="form-label">Tgl Akhir</label>
+				<input type="date" name="tgl_awal" class="form-control">
+			</div>
+		</form>
+	</div>
+	<div class="row">
+		<div class="col mt-4">
 			<a href="index.php?page=tambah_pemasukan" class="btn btn-primary">Tambah</a>
 			<table class="table table-bordered my-3 text-center">
 				<thead>
@@ -34,7 +46,7 @@ $hasil = $penjumlahan->fetch_assoc();
 						<tr>
 							<td><?php echo $key+1; ?></td>
 							<td>Rp. <?php echo number_format($value['pemasukan_uang']) ; ?></td>
-							<td><?php echo $value['tanggal']; ?></td>
+							<td><?php echo date("d M Y", strtotime($value['tanggal'])); ?></td>
 							<td><?php echo $value['keterangan']; ?></td>
 							<td class="text-center">
 								<a href="index.php?page=edit_pemasukan&id=<?php echo $value['id']; ?>" class="btn btn-warning">Edit</a>
@@ -50,4 +62,5 @@ $hasil = $penjumlahan->fetch_assoc();
 			</table>
 		</div>
 	</div>
+</div>
 </div>
